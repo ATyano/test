@@ -34,3 +34,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      # maven build
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots package
+        working-directory: ./java_test3
+      # Test実行
+      - name: Test with Maven
+        run: mvn --batch-mode test
+        working-directory: ./java_test3
