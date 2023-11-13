@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: test_yano_pj
 
 # Controls when the workflow will run
 on:
@@ -35,8 +35,15 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-        
-      # Test実行
-      - name: Test with Maven
-        run: mvn --batch-mode test
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn -B clean install
+
+      - name: Run Tests
+        run: mvn test
         
