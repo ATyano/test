@@ -35,9 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      # maven build
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
         
       # Test実行
       - name: Test with Maven
